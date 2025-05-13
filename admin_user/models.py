@@ -2,7 +2,6 @@ from django.db import models
 from uuid import uuid4
 from django.db import models
 from django.utils import timezone
-from dataforte.models import CourseSchema, EnrollmentSchema, ResourceSchema, RecordingSchema, NotificationSchema
 
 class Course(models.Model):
     """Model representing an educational course."""

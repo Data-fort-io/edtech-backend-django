@@ -1,59 +1,56 @@
 from pydantic import BaseModel, EmailStr
 from typing import List, Optional
-from uuid import UUID
 from datetime import datetime
 
 
-
 class CourseSchema(BaseModel):
-    id: UUID
+    id: int
     title: str
     description: Optional[str] = None
-    created_by: UUID
+    created_by: int
     is_active: bool
     created_at: datetime
     updated_at: datetime
 
 
 class EnrollmentSchema(BaseModel):
-    id: UUID
-    user_id: UUID
-    course_id: UUID
-    status: str  # or Literal["active", "completed", "cancelled"]
+    id: int
+    user_id: int
+    course_id: int
+    status: str  # optionally: Literal["active", "completed", "cancelled"]
     created_at: datetime
     updated_at: datetime
 
 
 class ResourceSchema(BaseModel):
-    id: UUID
-    course_id: UUID
+    id: int
+    course_id: int
     title: str
     file_url: str
-    uploaded_by: UUID
+    uploaded_by: int
     created_at: datetime
     updated_at: datetime
 
 
 class RecordingSchema(BaseModel):
-    id: UUID
-    course_id: UUID
+    id: int
+    course_id: int
     title: str
     video_url: str
-    uploaded_by: UUID
+    uploaded_by: int
     created_at: datetime
     updated_at: datetime
 
 
 class NotificationSchema(BaseModel):
-    id: UUID
+    id: int
     title: str
     message: str
-    sent_to: UUID
-    sent_by: UUID
+    sent_to: int
+    sent_by: int
     is_read: bool
     created_at: datetime
     updated_at: datetime
-
 
 
 class Role(BaseModel):
@@ -62,7 +59,7 @@ class Role(BaseModel):
 
 
 class User(BaseModel):
-    id: UUID
+    id: int
     email: EmailStr
     role: Role
     has2FA: bool
